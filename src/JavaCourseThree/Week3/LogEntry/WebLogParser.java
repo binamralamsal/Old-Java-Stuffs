@@ -1,4 +1,4 @@
-package Week3;
+package JavaCourseThree.Week3.LogEntry;
 
 import java.text.*;
 import java.util.*;

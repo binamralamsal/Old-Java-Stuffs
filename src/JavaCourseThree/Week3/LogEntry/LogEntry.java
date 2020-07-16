@@ -5,8 +5,7 @@
  * @version (1.0)
  */
 
-
-package LogEntry;
+package JavaCourseThree.Week3.LogEntry;
 
 import  java.util.*;
 public class LogEntry

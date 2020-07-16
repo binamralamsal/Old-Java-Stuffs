@@ -1,10 +1,10 @@
-package Week3;
+package JavaCourseThree.Week3.LogEntry;
+
+;
 
 import edu.duke.FileResource;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 
 
 public class LogAnalyzer {
