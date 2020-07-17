@@ -1,6 +1,7 @@
 package JavaCourseFour.Week1.QuakeEntry;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.*;
 import edu.duke.*;
 
@@ -102,8 +103,65 @@ public class EarthQuakeClient {
         }
     }
 
+    public ArrayList<QuakeEntry> filterByDepth(ArrayList<QuakeEntry> quakeData, double minDepth, double maxDepth ){
+        ArrayList<QuakeEntry> answer = new ArrayList<>();
+        for (QuakeEntry quake : quakeData){
+            if (quake.getDepth() > minDepth && quake.getDepth() < maxDepth){
+                answer.add(quake);
+            }
+        }
+
+        return answer;
+    }
+
+    public void quakesOfDepth(){
+        EarthQuakeParser parser = new EarthQuakeParser();
+        String source = "src/JavaCourseFour/Week1/QuakeEntry/data/nov20quakedatasmall.atom";
+        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        ArrayList<QuakeEntry> list  = parser.read(source);
+        System.out.println("Total Data read: " + list.size());
+        ArrayList<QuakeEntry> quakesDepthData = filterByDepth(list, -10000.0, -5000.0 );
+
+        for (QuakeEntry qe : quakesDepthData) {
+            System.out.println(qe);
+        }
+        System.out.println("Found " +quakesDepthData.size() +" quakes that match that criteria");
+    }
+
+    public ArrayList<QuakeEntry> filterByPhrase(ArrayList<QuakeEntry> quakeData, String where, String phrase){
+        ArrayList<QuakeEntry> answer = new ArrayList<>();
+        for (QuakeEntry quakes : quakeData){
+            if (where.equals("start")) {
+                if (quakes.getInfo().startsWith(phrase))
+                    answer.add(quakes);
+            } else if(where.equals("end")) {
+                if (quakes.getInfo().endsWith(phrase))
+                    answer.add(quakes);
+            } else{
+                if (quakes.getInfo().contains(phrase))
+                    answer.add(quakes);
+            }
+        }
+
+        return answer;
+    }
+
+    public void quakesByPhrase (){
+        EarthQuakeParser parser = new EarthQuakeParser();
+        String source = "src/JavaCourseFour/Week1/QuakeEntry/data/nov20quakedatasmall.atom";
+        //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
+        ArrayList<QuakeEntry> list  = parser.read(source);
+        System.out.println("Total Data read: " + list.size());
+        ArrayList<QuakeEntry> quakesPhraseData = filterByPhrase(list, "start", "Explosion");
+
+        for (QuakeEntry qe : quakesPhraseData) {
+            System.out.println(qe);
+        }
+        System.out.println("Found " +quakesPhraseData.size() +" quakes that match that criteria");
+    }
+
     public static void main(String[] args) {
         EarthQuakeClient test = new EarthQuakeClient();
-        test.closeToMe();
+        test.quakesByPhrase();
     }
 }
