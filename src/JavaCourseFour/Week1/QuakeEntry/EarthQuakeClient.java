@@ -116,11 +116,11 @@ public class EarthQuakeClient {
 
     public void quakesOfDepth(){
         EarthQuakeParser parser = new EarthQuakeParser();
-        String source = "src/JavaCourseFour/Week1/QuakeEntry/data/nov20quakedatasmall.atom";
+        String source = "src/JavaCourseFour/Week1/QuakeEntry/data/nov20quakedata.atom";
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         System.out.println("Total Data read: " + list.size());
-        ArrayList<QuakeEntry> quakesDepthData = filterByDepth(list, -10000.0, -5000.0 );
+        ArrayList<QuakeEntry> quakesDepthData = filterByDepth(list, -10000.0, -8000.0);
 
         for (QuakeEntry qe : quakesDepthData) {
             System.out.println(qe);
@@ -148,11 +148,11 @@ public class EarthQuakeClient {
 
     public void quakesByPhrase (){
         EarthQuakeParser parser = new EarthQuakeParser();
-        String source = "src/JavaCourseFour/Week1/QuakeEntry/data/nov20quakedatasmall.atom";
+        String source = "src/JavaCourseFour/Week1/QuakeEntry/data/nov20quakedata.atom";
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         System.out.println("Total Data read: " + list.size());
-        ArrayList<QuakeEntry> quakesPhraseData = filterByPhrase(list, "start", "Explosion");
+        ArrayList<QuakeEntry> quakesPhraseData = filterByPhrase(list, "any", "Creek");
 
         for (QuakeEntry qe : quakesPhraseData) {
             System.out.println(qe);

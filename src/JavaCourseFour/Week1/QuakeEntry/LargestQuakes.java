@@ -5,12 +5,12 @@ import java.util.*;
 public class LargestQuakes {
     public void findLargestQuakes() {
         EarthQuakeParser parser = new EarthQuakeParser();
-        String source = "src/JavaCourseFour/Week1/QuakeEntry/data/nov20quakedatasmall.atom";
+        String source = "src/JavaCourseFour/Week1/QuakeEntry/data/nov20quakedata.atom";
 //        String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         ArrayList<QuakeEntry> list = parser.read(source);
         System.out.println("Total earthquake data: " + list.size());
 
-        ArrayList<QuakeEntry> largest = getLargest(list, 10);
+        ArrayList<QuakeEntry> largest = getLargest(list, 5);
         for (QuakeEntry quake : largest){
             System.out.println(quake);
         }
