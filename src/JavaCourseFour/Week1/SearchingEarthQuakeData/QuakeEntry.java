@@ -1,4 +1,4 @@
-package JavaCourseFour.Week1.QuakeEntry;
+package JavaCourseFour.Week1.SearchingEarthQuakeData;
 
 
 public class QuakeEntry implements Comparable<QuakeEntry> {

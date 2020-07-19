@@ -1,4 +1,4 @@
-package JavaCourseFour.Week1.QuakeEntry;
+package JavaCourseFour.Week1.SearchingEarthQuakeData;
 
 /**
  * Find N-closest quakes

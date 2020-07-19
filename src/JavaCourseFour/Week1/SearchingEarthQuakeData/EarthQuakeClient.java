@@ -1,11 +1,6 @@
-package JavaCourseFour.Week1.QuakeEntry;
+package JavaCourseFour.Week1.SearchingEarthQuakeData;
 
-import java.io.File;
-import java.lang.reflect.Array;
 import java.util.*;
-import edu.duke.*;
-
-import javax.crypto.spec.PSource;
 
 public class EarthQuakeClient {
     public EarthQuakeClient() {
