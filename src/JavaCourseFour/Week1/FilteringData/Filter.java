@@ -7,5 +7,6 @@ package JavaCourseFour.Week1.FilteringData;
  */
 public interface Filter
 {
-    public  boolean satisfies(QuakeEntry qe); 
+    public  boolean satisfies(QuakeEntry qe);
+    public String getName();
 }
